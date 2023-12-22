@@ -165,8 +165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partToRotate: {fileID: 3327130187888922505}
   enemyTag: Enemy
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 5138976108825527738, guid: 8dcc9eec383d84b4d974943a472d7bb5, type: 3}
+  firePoint: {fileID: 6028713132920705354}
   range: 15
   turnSpeed: 10
   fireRate: 1
@@ -279,7 +279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3294472619423880664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.815, z: 2.349}
+  m_LocalPosition: {x: 0, y: 0.815, z: 2.533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -4,36 +4,36 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 10f;
-
-    private Transform target;
-    private int wavepointIndex = 0;
+    public float startSpeed = 10f;
+    [HideInInspector]
+    public float speed;
+    public float health = 100;
+    public int worth = 50;
+    public GameObject enemyDeathEffect;
 
     private void Start()
     {
-        target = WayPoints.wayPoints[wavepointIndex];
+        speed = startSpeed;
     }
 
-    private void Update()
+    public void TakeDamage(float amount)
     {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        if(Vector3.Distance(transform.position, target.position) <= 0.4f)
+        health -= amount;
+        if(health <= 0)
         {
-            GetNextWayPoint();
+            Die();
         }
     }
 
-    public void GetNextWayPoint()
+    public void Slow(float pct)
     {
-        if (wavepointIndex >= WayPoints.wayPoints.Length - 1)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        speed = startSpeed * pct;
+    }
 
-        wavepointIndex++;
-        target = WayPoints.wayPoints[wavepointIndex];
+    void Die()
+    {
+        PlayerStates.Money += worth;
+        Destroy(gameObject);
+        Destroy(Instantiate(enemyDeathEffect, transform.position, Quaternion.identity),5f);
     }
 }
