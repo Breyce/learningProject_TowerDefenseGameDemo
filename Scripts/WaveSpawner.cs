@@ -38,6 +38,7 @@ public class WaveSpawner : MonoBehaviour
     {
         //Debug.Log("Wave Incomming");
         waveIndex++;
+        PlayerStates.Rounds = waveIndex;
 
         for (int i = 0; i < waveIndex; i++)
         {
