@@ -5,15 +5,18 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static bool GameIsOver;
-    public static bool GameIsPause;
 
     public GameObject gameOverUI;
     public GameObject gamePauseUI;
+    public GameObject gameCompleteUI;
+
+
+    public SceneFader fader;
 
     private void Start()
     {
         GameIsOver = false;
-        GameIsPause = false;
+        WaveSpawner.EnemyAlive = 0;
     }
 
     void Update()
@@ -34,15 +37,12 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         GameIsOver = true;
-        //Time.timeScale = 0;
         gameOverUI.gameObject.SetActive(true);
         //Debug.Log(gameOverUI.name);
     }
 
     private void PauseGame()
     {
-        //GameIsPause = !GameIsPause;
-        //gamePauseUI.gameObject.SetActive(GameIsPause);
 
         gamePauseUI.gameObject.SetActive(!gamePauseUI.activeSelf);
 
@@ -54,7 +54,11 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+    }
 
-        //Time.timeScale = GameIsPause ? 0 : 1;
+    public void WinLevel()
+    {
+        GameIsOver = true;
+        gameCompleteUI.SetActive(true);
     }
 }

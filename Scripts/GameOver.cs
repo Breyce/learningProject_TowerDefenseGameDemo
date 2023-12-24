@@ -6,21 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public TextMeshProUGUI roundsText;
-
-    private void OnEnable()
-    {
-        roundsText.text = PlayerStates.Rounds + " ROUND SURVIVED";
-    }
+    public string menuScene = "MainMenu";
+    public SceneFader sceneFader;
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //WaveSpawner.EnemyAlive = 0;
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
         Debug.Log("Menu");
-        SceneManager.LoadScene("MainMenu");
+        sceneFader.FadeTo(menuScene);
     }
 }

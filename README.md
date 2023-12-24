@@ -47,3 +47,21 @@
    ![image-20231223202123194](Image/Unscaled Time.png)
 
 2. 使用`Ctrl + Shift + F`：可以迅速将选中的游戏实体移动到在`Scene`当中的视角和位置
+
+
+
+## Development Day 3: 2023.12.24
+
+1. `public AnimationCurve curve;`：`Unity`自带的`AnimationCurve`可以很简便的实现一些曲线变化动画效果。
+
+   <img src="Image/AnimationCurve.png" alt="image-20231224110209496" style="zoom:80%;" />
+
+2. 一些排版组件：`Grid Layout Group`网格排版、`Horizontal Layout Group`水平排版、`Vertical Layout Group`垂直排版，`Content Size Fitter`自适应内容大小。
+
+   ![image-20231224130330930](Image/Layout.png)
+
+   用于实现滚动屏幕的组件：`Scroll Rect`实现滚动轴，`Scroll Mask`将滚动页面显示区域外的内容隐藏，有点像前端`CSS`的`overflow:hidden;`操作。
+
+   ![image-20231224131217224](Image/Scroll.png)
+
+3. 

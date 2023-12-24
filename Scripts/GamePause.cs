@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class GamePause : MonoBehaviour
 {
     public GameObject ui;
-
+    public SceneFader sceneFader;
     public TextMeshProUGUI roundsText;
+    public string menuScene = "MainMenu";
 
     private void OnEnable()
     {
@@ -31,14 +32,16 @@ public class GamePause : MonoBehaviour
 
     public void Retry()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Toggle();
+        //WaveSpawner.EnemyAlive = 0;
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
         Debug.Log("Menu");
-        SceneManager.LoadScene("MainMenu");
+        Toggle();
+        sceneFader.FadeTo(menuScene);
     }
 
     public void Contiunue()
